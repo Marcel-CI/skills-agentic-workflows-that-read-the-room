@@ -13,6 +13,9 @@ tools:
     toolsets:
       - repos
   web-fetch:
+  bash:
+    - "curl -fsSL https://github.blog/*"
+    - "curl -fsSL https://awesome-copilot.github.com/workflows/"
   edit:
 network:
   allowed:
@@ -38,6 +41,8 @@ Keep the repository's GitHub information page current and propose every change f
    - https://github.blog/latest/
    - https://github.blog/changelog/
   - https://awesome-copilot.github.com/workflows/
+  If web-fetch is unavailable in the session, use the restricted curl commands
+  only for these three public URLs and do not use bash to read repository files.
 3. Use the GitHub repository API tools, rather than terminal, CLI, or sandboxed commands, to read any repository guidance or reference files needed for this task.
 4. Update `site/content/github-info.md` with concise, practical developer-focused information from the fetched sources. Mention the source for every Blog or Changelog update. Preserve the existing Markdown style and avoid unrelated changes.
 5. Review the resulting diff for accuracy and scope. If there is a useful update, use the `create_pull_request` safe output to open a draft pull request targeting `main` for Mona to review. Include a concise summary of the sources and changes in the pull request body. Do not write directly to `main`.
